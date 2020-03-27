@@ -24,7 +24,7 @@ namespace Api.Controllers
             _options = options;
         }
 
-        private async Task<CloudBlobContainer> GetCloudBlobContainer(string containerName)
+        private async Task<CloudBlobContainer> GetCloudBlobContainer(string containerName) /////
         {
             CloudStorageAccount account = CloudStorageAccount.Parse(_options.StorageConnectionString);
             CloudBlobClient blobClient = account.CreateCloudBlobClient();
@@ -35,7 +35,7 @@ namespace Api.Controllers
 
         [Route("/")]
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<string>>> Get()
+        public async Task<ActionResult<IEnumerable<string>>> Get() /////
         {
             CloudBlobContainer container = await GetCloudBlobContainer(_options.FullImageContainerName);
             BlobContinuationToken continuationToken = null;
