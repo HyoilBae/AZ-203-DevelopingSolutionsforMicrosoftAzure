@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 
+
 namespace AdventureWorks.Web
 {
     public class Program
@@ -14,4 +15,6 @@ namespace AdventureWorks.Web
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>();
     }
+
+    
 }

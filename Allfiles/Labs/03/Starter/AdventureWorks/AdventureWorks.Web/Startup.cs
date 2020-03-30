@@ -43,9 +43,11 @@ namespace AdventureWorks.Web
 
         public void ConfigureCheckoutService(IServiceCollection services)
         {
-            services.AddScoped<IAdventureWorksCheckoutContext>(provider =>
-                new Mock<IAdventureWorksCheckoutContext>().Object
-            );
+            services.AddScoped<IAdventureWorksCheckoutContext, AdventureWorksRedisContext>(provider =>
+      new AdventureWorksRedisContext(
+          _configuration.GetConnectionString(nameof(AdventureWorksRedisContext))
+      )
+  );
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
